@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>植緒平衡卡｜芳療心靈測驗</title>
+  <meta name="description" content="10 道題，找到此刻陪伴你的那支精油。">
+  <meta name="theme-color" content="#f6f0e6">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app">
+
+    <!-- 首頁 -->
+    <section id="screen-home" class="screen">
+      <div class="home-deck" aria-hidden="true">
+        <div class="card-back tilt-l"></div>
+        <div class="card-back tilt-r"></div>
+        <div class="card-back"></div>
+      </div>
+      <p class="eyebrow">Emotional Energy Balance Card</p>
+      <h1 class="home-title"></h1>
+      <p class="home-sub"></p>
+      <div class="ornament" aria-hidden="true">✦</div>
+      <p class="home-desc">靜下心，憑直覺回答 10 個問題。<br>沒有對錯，選最貼近你此刻感受的答案就好。</p>
+      <button class="btn btn-primary" id="btn-start">開始測驗</button>
+      <button class="btn btn-link" id="btn-gallery-home">看全部 24 張卡</button>
+    </section>
+
+    <!-- 答題 -->
+    <section id="screen-quiz" class="screen" hidden>
+      <div class="quiz-top">
+        <button class="btn-icon" id="btn-back" aria-label="上一題">‹</button>
+        <div class="progress"><div class="progress-bar" id="progress-bar"></div></div>
+        <span class="progress-text" id="progress-text"></span>
+      </div>
+      <p class="part-label" id="part-label"></p>
+      <h2 class="question" id="question-text"></h2>
+      <div class="options" id="options"></div>
+    </section>
+
+    <!-- 翻卡 -->
+    <section id="screen-reveal" class="screen" hidden>
+      <p class="reveal-hint" id="reveal-hint">深呼吸，點一下翻開你的卡</p>
+      <button class="flip-card" id="flip-card" aria-label="翻開卡片">
+        <span class="flip-inner">
+          <span class="flip-face flip-back"><span class="card-back"></span></span>
+          <span class="flip-face flip-front"><img id="reveal-img" alt=""></span>
+        </span>
+      </button>
+    </section>
+
+    <!-- 結果／卡片介紹（也用於分享連結與圖鑑） -->
+    <section id="screen-result" class="screen" hidden>
+      <p class="result-intro" id="result-intro"></p>
+      <img class="result-card" id="result-img" alt="">
+      <div class="chakra-badge" id="chakra-badge"></div>
+      <h2 class="card-name" id="card-name"></h2>
+      <p class="card-latin" id="card-latin"></p>
+      <blockquote class="card-message">
+        <p id="card-message"></p>
+        <p class="en" id="card-message-en"></p>
+      </blockquote>
+
+      <div class="panel" id="panel-why">
+        <h3>為什麼是這張卡</h3>
+        <p id="why-chakra"></p>
+        <p id="why-need"></p>
+      </div>
+      <div class="panel">
+        <h3>精油小建議</h3>
+        <p id="card-usage"></p>
+      </div>
+
+      <div class="actions" id="actions-result">
+        <button class="btn btn-primary" id="btn-share">分享給朋友</button>
+        <button class="btn btn-outline" id="btn-save">儲存結果圖</button>
+        <button class="btn btn-outline" id="btn-retry">再測一次</button>
+        <button class="btn btn-link" id="btn-gallery">看全部 24 張卡</button>
+      </div>
+      <div class="actions" id="actions-shared" hidden>
+        <button class="btn btn-primary" id="btn-try">我也要測驗</button>
+        <button class="btn btn-link" id="btn-gallery-shared">看全部 24 張卡</button>
+      </div>
+      <div class="actions" id="actions-gallery" hidden>
+        <button class="btn btn-outline" id="btn-back-gallery">回到圖鑑</button>
+        <button class="btn btn-link" id="btn-home-from-card">回首頁</button>
+      </div>
+
+      <p class="disclaimer">本測驗僅供娛樂與自我覺察參考。精油使用前請先稀釋，孕婦、幼兒、寵物及有健康疑慮者請先諮詢專業人士。</p>
+    </section>
+
+    <!-- 圖鑑 -->
+    <section id="screen-gallery" class="screen" hidden>
+      <div class="gallery-top">
+        <button class="btn-icon" id="btn-gallery-close" aria-label="回首頁">‹</button>
+        <h2>24 張卡片圖鑑</h2>
+      </div>
+      <div id="gallery"></div>
+    </section>
+
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
